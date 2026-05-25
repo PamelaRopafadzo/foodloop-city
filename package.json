@@ -1,5 +1,18 @@
 {
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "axios": "^1.16.1",
+    "leaflet": "^1.9.4",
+    "react-hot-toast": "^2.6.0",
+    "react-leaflet": "^5.0.0",
+    "react-router-dom": "^7.15.1",
+    "recharts": "^3.8.1",
+    "socket.io-client": "^4.8.3",
     "uuid": "^14.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^4.3.0"
   }
 }
