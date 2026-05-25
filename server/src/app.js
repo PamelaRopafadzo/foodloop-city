@@ -8,6 +8,7 @@ const rateLimit  = require('express-rate-limit');
 const http       = require('http');
 const { Server } = require('socket.io');
 const { sequelize } = require('./models');
+const { globalErrorHandler } = require('./middleware/errorHandler');
 
 const app    = express();
 const server = http.createServer(app);
@@ -19,53 +20,38 @@ const io = new Server(server, {
   }
 });
 
-// Make io available in routes via req.app.get('io')
 app.set('io', io);
 
 // ── Security ──────────────────────────────────────────────────────────────
 app.use(helmet());
-app.use(cors({
-  origin:      process.env.CLIENT_URL || 'http://localhost:3000',
-  credentials: true
-}));
-app.use(rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max:      100,
-  message:  { error: 'Too many requests, try again later' }
-}));
+app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:3000', credentials: true }));
+app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100,
+  message: { error: 'Too many requests' } }));
 
 // ── Body parsing ──────────────────────────────────────────────────────────
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
 // ── Routes ────────────────────────────────────────────────────────────────
-app.use('/api/auth',      require('./routes/auth'));
-// Day 2 routes added here:
-// app.use('/api/products',  require('./routes/products'));
-// app.use('/api/inventory', require('./routes/inventory'));
-// app.use('/api/sales',     require('./routes/sales'));
-// app.use('/api/donations', require('./routes/donations'));
-// app.use('/api/analytics', require('./routes/analytics'));
-// app.use('/api/admin',     require('./routes/admin'));
-// app.use('/api/reports',   require('./routes/reports'));
+app.use('/api/auth',        require('./routes/auth'));
+app.use('/api/products',    require('./routes/products'));
+app.use('/api/inventory',   require('./routes/inventory'));
+app.use('/api/sales',       require('./routes/sales'));
+app.use('/api/donations',   require('./routes/donations'));
+app.use('/api/analytics',   require('./routes/analytics'));
+app.use('/api/admin',       require('./routes/admin'));
+app.use('/api/reports',     require('./routes/reports'));
 
 // ── Health check ──────────────────────────────────────────────────────────
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-// ── WebSocket handlers ────────────────────────────────────────────────────
+// ── WebSocket ─────────────────────────────────────────────────────────────
 require('./sockets/handlers')(io);
 
-// ── Global error handler — must be last ───────────────────────────────────
-app.use((err, req, res, next) => {
-  const status  = err.statusCode || 500;
-  const message = err.isOperational
-    ? err.message
-    : process.env.NODE_ENV === 'production' ? 'Something went wrong' : err.message;
-  console.error(`[${status}] ${err.message}`);
-  res.status(status).json({ error: message });
-});
+// ── Error handler — must be last ──────────────────────────────────────────
+app.use(globalErrorHandler);
 
 // ── Start ─────────────────────────────────────────────────────────────────
 const PORT = process.env.PORT || 5000;
