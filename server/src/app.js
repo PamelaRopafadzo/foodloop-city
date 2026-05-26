@@ -19,7 +19,6 @@ const io = new Server(server, {
   }
 });
 
-// Make io available in routes via req.app.get('io')
 app.set('io', io);
 
 // ── Security ──────────────────────────────────────────────────────────────
@@ -40,7 +39,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // ── Routes ────────────────────────────────────────────────────────────────
 app.use('/api/auth',      require('./routes/auth'));
-// Day 2 routes added here:
 // app.use('/api/products',  require('./routes/products'));
 // app.use('/api/inventory', require('./routes/inventory'));
 // app.use('/api/sales',     require('./routes/sales'));
@@ -57,7 +55,7 @@ app.get('/health', (req, res) => {
 // ── WebSocket handlers ────────────────────────────────────────────────────
 require('./sockets/handlers')(io);
 
-// ── Global error handler — must be last ───────────────────────────────────
+// ── Global error handler ──────────────────────────────────────────────────
 app.use((err, req, res, next) => {
   const status  = err.statusCode || 500;
   const message = err.isOperational
