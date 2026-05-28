@@ -87,7 +87,7 @@ export default function AdminOverview() {
               {liveEvents.map((e, i) => (
                 <div key={i} className="flex items-start gap-3 py-2.5">
                   <span className="text-lg mt-0.5">
-                    {e.type === 'created' ? '📦' : '✅'}
+                    {e.type === 'created' ? 'NEW' : 'DONE'}
                   </span>
                   <div>
                     <p className="text-sm text-gray-800">

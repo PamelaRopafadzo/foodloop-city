@@ -156,7 +156,6 @@ export default function InventoryLog() {
 
       {products.length === 0 && (
         <div className="text-center py-16 text-gray-400">
-          <p className="text-4xl mb-3">📦</p>
           <p>No products yet — ask your manager to add products first.</p>
         </div>
       )}

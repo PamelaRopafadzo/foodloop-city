@@ -46,7 +46,7 @@ export default function Dashboard() {
       {/* Header */}
       <div>
         <h1 className="text-2xl font-bold text-gray-900">
-          Good morning, {user?.firstName} 👋
+          Good morning, {user?.firstName}
         </h1>
         <p className="text-sm text-gray-500 mt-1">{user?.organisation?.name}</p>
       </div>
@@ -85,7 +85,6 @@ export default function Dashboard() {
 
         {scores.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-4xl mb-3">📦</p>
             <p className="text-gray-500">No products scored yet — log some inventory first</p>
           </div>
         ) : (
