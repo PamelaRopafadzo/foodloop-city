@@ -55,7 +55,7 @@ export default function DonationMap() {
   useEffect(() => {
     const unsub = on('donation:new', (d) => {
       setMarkers(prev => [...prev, d]);
-      toast('📍 New donation nearby!');
+      toast('New donation nearby!');
     });
     return unsub;
   }, [on]);

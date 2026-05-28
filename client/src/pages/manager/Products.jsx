@@ -188,7 +188,6 @@ export default function Products() {
       <div className="card">
         {products.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-4xl mb-3">🥐</p>
             <p className="text-gray-500">No products yet — add your first one</p>
           </div>
         ) : (
