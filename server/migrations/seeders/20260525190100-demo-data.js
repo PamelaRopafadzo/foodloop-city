@@ -55,7 +55,7 @@ module.exports = {
       {
         id:             uuidv4(),
         organisation_id: restaurantId,
-        email:          'manager@cafewola.pl',
+        email:          'manager@mkcafe.pl',
         password_hash:  hash,
         first_name:     'Ana',
         last_name:      'Beth',
@@ -67,7 +67,7 @@ module.exports = {
       {
         id:             uuidv4(),
         organisation_id: restaurantId,
-        email:          'staff@cafewola.pl',
+        email:          'staff@mkcafe.pl',
         password_hash:  hash,
         first_name:     'Pamela',
         last_name:      'Ropafadzo',
