@@ -11,6 +11,7 @@ import Products       from './pages/manager/Products';
 import InventoryLog   from './pages/staff/InventoryLog';
 import DonationMap    from './pages/charity/DonationMap';
 import Impact         from './pages/charity/Impact';
+import Claims         from './pages/charity/Claims';
 import AdminOverview  from './pages/admin/AdminOverview';
 import Donations      from './pages/manager/Donations';
 
@@ -70,7 +71,7 @@ function AppRoutes() {
         <Protected roles={['charity_coordinator', 'admin']}><DonationMap /></Protected>
       } />
       <Route path="/claims" element={
-        <Protected roles={['charity_coordinator', 'admin']}><Impact /></Protected>
+        <Protected roles={['charity_coordinator', 'admin']}><Claims /></Protected>
       } />
       <Route path="/impact" element={
         <Protected roles={['charity_coordinator', 'admin']}><Impact /></Protected>

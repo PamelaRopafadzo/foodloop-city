@@ -19,6 +19,7 @@ const NAV = {
   ],
   charity_coordinator: [
     { to: '/map',       icon: MapPinIcon,                label: 'Live Map'   },
+    { to: '/claims',    icon: HeartIcon,                 label: 'My Claims'  },
     { to: '/impact',    icon: ChartBarIcon,              label: 'Impact'     },
   ],
   admin: [
