@@ -35,8 +35,8 @@ export default function Login() {
 
   // Demo accounts for quick testing
   const demos = [
-    { label: 'Manager',  email: 'manager@cafewola.pl' },
-    { label: 'Staff',    email: 'staff@cafewola.pl' },
+    { label: 'Manager',  email: 'manager@mkcafe.pl' },
+    { label: 'Staff',    email: 'staff@mkcafe.pl' },
     { label: 'Charity',  email: 'coordinator@warsawfoodbank.pl' },
     { label: 'Admin',    email: 'admin@foodloop.city' },
   ];
@@ -46,8 +46,8 @@ export default function Login() {
       <div className="w-full max-w-sm">
 
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-gray-900">FoodLoop City</h1>
-          <p className="text-gray-500 text-sm mt-1">Urban food waste intelligence</p>
+          <div className="text-5xl mb-3">🌱</div>
+          <h1 className="text-2xl font-bold text-gray-900">FoodLoop </h1>
         </div>
 
         <div className="card">

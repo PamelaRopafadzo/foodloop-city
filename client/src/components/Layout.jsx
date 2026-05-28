@@ -43,7 +43,9 @@ export default function Layout({ children }) {
 
         {/* Logo */}
         <div className="px-6 py-5 border-b border-gray-100">
-          <span className="text-lg font-bold text-brand-700">FoodLoop</span>
+          <span className="text-lg font-bold text-green-600 flex items-center gap-2">
+            <span>🌱</span> FOODLOOP
+          </span>
           <p className="text-xs text-gray-400 mt-0.5 truncate">
             {user?.organisation?.name || 'Platform Admin'}
           </p>

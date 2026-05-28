@@ -13,7 +13,7 @@ module.exports = {
     await queryInterface.bulkInsert('organisations', [
       {
         id:               restaurantId,
-        name:             'Café Wola',
+        name:             'MKcafe',
         type:             'cafe',
         address:          'ul. Wolska 12, Warsaw',
         city:             'Warsaw',
@@ -55,10 +55,10 @@ module.exports = {
       {
         id:             uuidv4(),
         organisation_id: restaurantId,
-        email:          'manager@cafewola.pl',
+        email:          'manager@mkcafe.pl',
         password_hash:  hash,
-        first_name:     'Anna',
-        last_name:      'Kowalska',
+        first_name:     'Ana',
+        last_name:      'Beth',
         role:           'manager',
         is_active:      true,
         created_at:     new Date(),
@@ -67,10 +67,10 @@ module.exports = {
       {
         id:             uuidv4(),
         organisation_id: restaurantId,
-        email:          'staff@cafewola.pl',
+        email:          'staff@mkcafe.pl',
         password_hash:  hash,
-        first_name:     'Marek',
-        last_name:      'Wisniewski',
+        first_name:     'Pamela',
+        last_name:      'Ropafadzo',
         role:           'staff',
         is_active:      true,
         created_at:     new Date(),
