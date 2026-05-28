@@ -46,8 +46,8 @@ export default function Login() {
       <div className="w-full max-w-sm">
 
         <div className="text-center mb-8">
-          <div className="text-5xl mb-3 text-green-600">🌱</div>
-          <h1 className="text-2xl font-bold text-gray-900">FOODLOOP</h1>
+          <div className="text-5xl mb-3">🌱</div>
+          <h1 className="text-2xl font-bold text-gray-900">FoodLoop </h1>
         </div>
 
         <div className="card">
