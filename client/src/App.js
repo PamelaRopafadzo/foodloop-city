@@ -69,6 +69,9 @@ function AppRoutes() {
       <Route path="/map" element={
         <Protected roles={['charity_coordinator', 'admin']}><DonationMap /></Protected>
       } />
+      <Route path="/claims" element={
+        <Protected roles={['charity_coordinator', 'admin']}><Impact /></Protected>
+      } />
       <Route path="/impact" element={
         <Protected roles={['charity_coordinator', 'admin']}><Impact /></Protected>
       } />
