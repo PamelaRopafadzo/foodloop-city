@@ -12,6 +12,7 @@ import InventoryLog   from './pages/staff/InventoryLog';
 import DonationMap    from './pages/charity/DonationMap';
 import Impact         from './pages/charity/Impact';
 import AdminOverview  from './pages/admin/AdminOverview';
+import Donations      from './pages/manager/Donations';
 
 const HOME = {
   manager:             '/dashboard',
@@ -54,6 +55,9 @@ function AppRoutes() {
       } />
       <Route path="/products" element={
         <Protected roles={['manager', 'admin']}><Products /></Protected>
+      } />
+      <Route path="/donations" element={
+        <Protected roles={['manager', 'admin']}><Donations /></Protected>
       } />
 
       {/* Staff + manager */}

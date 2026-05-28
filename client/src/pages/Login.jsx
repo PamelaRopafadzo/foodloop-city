@@ -35,8 +35,8 @@ export default function Login() {
 
   // Demo accounts for quick testing
   const demos = [
-    { label: 'Manager',  email: 'manager@cafewola.pl' },
-    { label: 'Staff',    email: 'staff@cafewola.pl' },
+    { label: 'Manager',  email: 'manager@mkcafe.pl' },
+    { label: 'Staff',    email: 'staff@mkcafe.pl' },
     { label: 'Charity',  email: 'coordinator@warsawfoodbank.pl' },
     { label: 'Admin',    email: 'admin@foodloop.city' },
   ];
